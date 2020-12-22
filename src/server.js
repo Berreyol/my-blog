@@ -31,6 +31,7 @@ app.get('/api/articles/:name', async (req, res) => {
     }, res); 
 });
 
+// Post an upvote increasing by one of an article
 app.post('/api/articles/:name/upvote', async (req, res) => {
     withDB(async (db) => {
         const articleName = req.params.name;
@@ -49,6 +50,7 @@ app.post('/api/articles/:name/upvote', async (req, res) => {
     }, res);
 });
 
+// Post a comment of an article
 app.post('/api/articles/:name/add-comment', (req, res) => {
     const { username, text } = req.body;
     const articleName = req.params.name;
